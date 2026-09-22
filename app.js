@@ -1,5 +1,8 @@
-const CONFIG={clientId:"be1d4ce0d9ff4d4eb5a28a4a175c5e33",redirectUri:window.location.origin+window.location.pathname,scope:"playlist-read-private"};
-const $=s=>document.querySelector(s);const state={token:null,playlists:[],selected:null,songs:[],round:0,score:0,clipIndex:0,clips:[.1,.5,1,2,5],current:null};
+const CONFIG={
+  clientId:"be1d4ce0d9ff4d4eb5a28a4a175c5e33",
+  redirectUri:window.location.origin+window.location.pathname,
+  scope:"playlist-read-private"
+};const $=s=>document.querySelector(s);const state={token:null,playlists:[],selected:null,songs:[],round:0,score:0,clipIndex:0,clips:[.1,.5,1,2,5],current:null};
 const els={spotifyBtn:$('#spotifyBtn'),status:$('#status'),playlistList:$('#playlistList'),startBtn:$('#startBtn'),setup:$('#setup'),game:$('#game'),result:$('#result'),playlistTitle:$('#playlistTitle'),roundLabel:$('#roundLabel'),progressBar:$('#progressBar'),timer:$('#timer'),playBtn:$('#playBtn'),skipBtn:$('#skipBtn'),answer:$('#guess'),answerBtn:$('#answerBtn'),answerBox:$('#answerBox'),audio:$('#audio'),score:$('#score'),resultText:$('#resultText'),againBtn:$('#againBtn'),quitBtn:$('#quitBtn')};
 function base64url(buf){return btoa(String.fromCharCode(...new Uint8Array(buf))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'')}
 async function sha256(s){return crypto.subtle.digest('SHA-256',new TextEncoder().encode(s))}
