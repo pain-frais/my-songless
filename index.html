@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>My Songless</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div class="brand"><span class="brand-dot"></span>My Songless</div>
+      <button id="spotifyBtn" class="spotify-btn">Se connecter à Spotify</button>
+    </header>
+
+    <section id="setup" class="panel setup-panel">
+      <div class="hero">
+        <p class="eyebrow">BLIND TEST</p>
+        <h1>Devine tes morceaux.</h1>
+        <p class="sub">Choisis une playlist Spotify. L’extrait commence à 0,1 seconde, puis s’allonge à chaque skip.</p>
+      </div>
+      <div class="status-row"><span id="status">Connecte Spotify pour commencer.</span></div>
+      <div id="playlistList" class="playlist-grid"></div>
+      <button id="startBtn" class="primary" disabled>Commencer</button>
+    </section>
+
+    <section id="game" class="panel game-panel hidden">
+      <div class="game-head">
+        <div>
+          <p class="eyebrow" id="roundLabel">Manche</p>
+          <h2 id="playlistTitle">Playlist</h2>
+        </div>
+        <button id="quitBtn" class="ghost">Quitter</button>
+      </div>
+      <div class="progress"><div id="progressBar"></div></div>
+
+      <div class="player-card">
+        <div class="timer" id="timer">0.1 s</div>
+        <button id="playBtn" class="play" aria-label="Écouter">▶</button>
+        <p id="hint">Écoute l’extrait.</p>
+        <audio id="audio" preload="auto"></audio>
+      </div>
+
+      <div class="controls">
+        <button id="skipBtn" class="secondary">Skip / + de temps</button>
+      </div>
+
+      <div class="answer-area">
+        <div class="input-wrap">
+          <input id="guess" autocomplete="off" placeholder="Titre ou artiste…">
+          <button id="answerBtn" class="primary small">Valider</button>
+        </div>
+        <div id="suggestions" class="suggestions hidden"></div>
+        <div id="answerBox" class="answer-result hidden"></div>
+      </div>
+    </section>
+
+    <section id="result" class="panel result-panel hidden">
+      <p class="eyebrow">PARTIE TERMINÉE</p>
+      <h1 id="score">0 / 0</h1>
+      <p id="resultText"></p>
+      <button id="againBtn" class="primary">Rejouer</button>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
